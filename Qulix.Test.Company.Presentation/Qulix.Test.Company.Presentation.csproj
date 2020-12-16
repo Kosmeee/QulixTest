@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <AnalysisLevel>latest</AnalysisLevel>
+	  <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
+	  <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.Data.Common" Version="4.3.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Qulix.Test.Company.Data\Qulix.Test.Company.Data.csproj" />
+    <ProjectReference Include="..\Qulix.Test.Company.Domain\Qulix.Test.Company.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

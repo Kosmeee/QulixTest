@@ -1,0 +1,40 @@
+﻿
+@using Qulix.Test.Company.Domain.Models
+@model List<Company>
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+@Html.ActionLink("Create", "Add", null, new { @class = "btn btn-primary" })
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th scope="col">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Amount of Employees</th>
+            <th scope="col">Organisational Form</th>
+            <th scope="col">Actions</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            foreach (var a in Model)
+            {
+                <tr>
+                    <th scope="row">@a.Id</th>
+
+                    <td>@a.Title</td>
+                    <td>@a.Size</td>
+                    <td>@a.OrganisationalForm</td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Company", new { id = a.Id }, null)
+                        @Html.ActionLink("Delete", "Delete", "Company", new { id = a.Id }, null)
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

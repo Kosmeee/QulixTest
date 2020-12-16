@@ -1,0 +1,42 @@
+﻿
+@model List<EmployeeView>
+<link rel="stylesheet" href="~/css/site.css" />
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+@Html.ActionLink("Create", "Add", null, new { @class = "btn btn-primary" })
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Employment Date</th>
+            <th scope="col">Company</th>
+            <th scope="col">Position</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @{
+            foreach (var a in Model)
+            {
+                <tr>
+                    <th scope="row">@a.Id</th>
+                    @{string FullName = a.FirstName + " " + a.LastName + " " + a.Patronymic ?? "";
+                    }
+
+                    <td>@FullName</td>
+                    <td>@a.EmploymentDate.ToShortDateString()</td>
+                    <td>@a.Company.Title</td>
+                    <td>@a.Position.Title</td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", "Employee", new { id = a.Id }, null)
+                        @Html.ActionLink("Delete", "Delete", "Employee", new { id = a.Id }, null)
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>

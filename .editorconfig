@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# CS8019: Unnecessary using directive
+dotnet_diagnostic.CS8019.severity = silent
+
+# SA1412: Store files as UTF-8 with byte order mark
+dotnet_diagnostic.SA1412.severity = suggestion
